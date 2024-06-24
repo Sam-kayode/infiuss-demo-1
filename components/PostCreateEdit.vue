@@ -26,11 +26,9 @@
 import { ref } from 'vue';
 import { usePostStore } from '~/stores/posts';
 import Button from './Form/Button.vue';
-import { useToast } from 'vue-toastification';
 import type { Post } from '~/types/post';
 
-const toast = useToast();
-
+const { $toast } = useNuxtApp()
 // Define props to accept postId if editing an existing post
 const props = defineProps<{
     postId?: number;
@@ -74,7 +72,7 @@ const submitForm = async () => {
     // If editing a post, update it. Otherwise, create a new post.
     if (props.postId !== undefined) {
         postStore.updatePost(props.postId, content.value, pictureUrl);
-        toast.success('Post updated !');
+        $toast.success('Post updated !');
     } else {
         postStore.createPost(content.value, pictureUrl);
         // Reset the form inputs after submission
@@ -82,7 +80,7 @@ const submitForm = async () => {
         picture.value = null;
         picturePreview.value = null;
         fileInputKey.value = Date.now()
-        toast.success('Post created !');
+        $toast.success('Post created !');
     }
 
     // Closing the modal after a successful post creation

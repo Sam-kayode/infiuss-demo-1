@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
-  plugins: [{ src: "~/plugins/toastification.ts", mode: "client" }],
+  plugins: [{ src: "~/plugins/toastification.client.ts", mode: "client" }],
   postcss: {
     plugins: {
       tailwindcss: {},

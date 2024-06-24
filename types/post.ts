@@ -10,5 +10,5 @@ export interface Post {
  export interface PostStore {
     posts: Post[];
     showCreatePostModal: boolean;
-    showCreateEditModal?: boolean;
+    showEditPostModal: boolean;
   }
