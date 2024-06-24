@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.infiuss-underline,
+.infiuss-underline2 {
+  position: relative;
+}
+
+.infiuss-underline::after,
+.infiuss-underline2::after {
+  content: "";
+  background-color: #f7e2a7;
+  width: 100%;
+  height: 18px;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.infiuss-underline2::after {
+  width: 100%;
+  height: 6px;
+  bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .infiuss-underline::after {
+    height: 16px;
+    bottom: 3px;
+  }
+
+  .infiuss-underline2::after {
+    height: 10px;
+    bottom: 1px;
+  }
+}
